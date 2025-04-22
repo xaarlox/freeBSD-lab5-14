@@ -7,8 +7,7 @@
 #define PAGE_SIZE 4096
 
 void* allocate_memory(size_t size) {
-    void* mem = mmap(NULL, size, PROT_READ | PROT_WRITE,
-                     MAP_PRIVATE | MAP_ANON, -1, 0);
+    void* mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
     if (mem == MAP_FAILED) {
         perror("mmap failed");
         exit(EXIT_FAILURE);
