@@ -9,8 +9,7 @@ int main() {
     printf("UID = %d\n", getuid());
     printf("USER = %s\n", getenv("USER"));
     printf("HOME = %s\n", getenv("HOME"));
-    
-	setenv("USER", "bob", 1);
+    setenv("USER", "bob", 1);
     setenv("HOME", "/home/bob", 1);
     setenv("SHELL", "/bin/sh", 1);
 
