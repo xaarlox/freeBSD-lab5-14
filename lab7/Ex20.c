@@ -27,18 +27,16 @@ int main(int argc, char *argv[]) {
     printf("Throttling process %d to %d%% CPU usage...\n", pid, cpu_percent);
     int on_time = CYCLE_TIME_MS * cpu_percent / 100;
     int off_time = CYCLE_TIME_MS - on_time;
-    
-	int total_time_ms = 10000;
-	int elapsed = 0;
-
-	while (elapsed < total_time_ms) {
-		kill(pid, SIGCONT);
-		sleep_ms(on_time);
-		elapsed += on_time;
-
-		kill(pid, SIGSTOP);
-		sleep_ms(off_time);
-		elapsed += off_time;
-	}
+    int total_time_ms = 10000;
+    int elapsed = 0;
+    while (elapsed < total_time_ms) {	
+	    kill(pid, SIGCONT);
+	    sleep_ms(on_time);
+	    elapsed += on_time;
+	    
+	    kill(pid, SIGSTOP);
+	    sleep_ms(off_time);
+	    elapsed += off_time;
+    }
     return 0;
 }
